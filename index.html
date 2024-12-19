@@ -25,12 +25,8 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-  <!-- javascript adicional -->
-  <script language="javascript">
-    function closeNav () {
-      document.querySelector('.navbar-collapse').classList.remove('show')
-    }
-  </script>
+  <!-- javascript do Google reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfwaaAqAAAAAGWQYZeUZG0S1ZcsliBvBCHBIGb1"></script>
 </head>
 
 <body>
@@ -54,6 +50,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contactos" onclick="closeNav()">contactos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#localizacao" onclick="closeNav()">localização</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#instagram" onclick="closeNav()">
@@ -122,10 +121,6 @@
 
     <section id="contactos" class="scroll-page">
       <h1>Contactos</h1>
-      <p><i class="fa-solid fa-location-dot"></i>
-        Avenida da Sobreira, 320, 4535-265 Paços de Brandão
-      </p>
-
       <p>
         <a class="nav-link" href="mailto:ola@armazem320.pt">
           <i class="fa-regular fa-envelope p-1"></i>
@@ -134,6 +129,51 @@
       </p>
       <p>
         <i class="fa-solid fa-phone"></i> (+351) 912 345 678
+      </p>
+
+      <div class="container mt-5">
+        <h3>Deixe-nos um olá!</h3>
+
+        <form action="https://api.staticforms.xyz/submit" method="post" onsubmit="validateForm">
+          <input type="hidden" name="accessKey" value="3a4f1739-8c52-4e2d-ae0a-78b2f09b57ce">
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="name" class="form-label text-start d-block mb-0">nome</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="col-md-6">
+              <label for="email" class="form-label text-start d-block mb-0">e-mail</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label text-start d-block mb-0">mensagem</label>
+            <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+          </div>
+
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="$newsletter" name="$newsletter">
+            <label class="form-check-label text-start d-block" for="$newsletter">
+              quero receber novidades por e-mail
+            </label>
+          </div>
+
+          <!-- Google reCAPTCHA -->
+          <div class="mb-3">
+            <div class="g-recaptcha" data-sitekey="6LfwaaAqAAAAAGWQYZeUZG0S1ZcsliBvBCHBIGb1"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Enviar</button>
+
+          <div id="response-message" class="alert mt-4 d-none" role="alert"></div>
+        </form>
+      </div>
+    </section>
+
+    <section id="localizacao" class="scroll-page">
+      <h1>Localização</h1>
+      <p><i class="fa-solid fa-location-dot"></i>
+        Avenida da Sobreira, 320, 4535-265 Paços de Brandão
       </p>
 
       <p>
@@ -162,5 +202,7 @@
   <!-- javascript do widget de instagram -->
   <script src="https://widget.tagembed.com/embed.min.js" type="text/javascript"></script>
 
+    <!-- javascript adicional -->
+    <script src="js/index.js"></script>
 </body>
 </html>
